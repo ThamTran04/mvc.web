@@ -9,7 +9,7 @@ public class FileProperties {
 
 	private Properties Load() {
 
-		if (p != null)
+		if (p != null) //test
 			return p;
 
 		ClassLoader cloader = getClass().getClassLoader();
