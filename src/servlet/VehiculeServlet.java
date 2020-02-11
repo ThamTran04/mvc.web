@@ -14,7 +14,6 @@ import bean.User;
 import bean.Vehicule;
 import bean.Voiture;
 import dao.DaoFactory;
-import dao.interfaces.IVehiculeDao;
 import utils.AppSession;
 
 public class VehiculeServlet extends HttpServlet {
@@ -22,16 +21,14 @@ public class VehiculeServlet extends HttpServlet {
 
 	static List<Vehicule> vehicules = new ArrayList<Vehicule>();
 
-	public static final String CONF_DAO_FACTORY = "DaoFactoryInstance";
-	// "DaoFactoryInstance" vient de la classe InitialisationDaoFactory
-	private IVehiculeDao vehiculeDao = null;
-	
+	public static final String CONF_DAO_FACTORY = "DaoFactoryInstance";// "DaoFactoryInstance" vient de la classe
+																		// InitialisationDaoFactory
+
 	@Override
 	public void init() throws ServletException {
-		this.vehiculeDao = ((DaoFactory)getServletContext().getAttribute(CONF_DAO_FACTORY)).getVehiculeDao();
+		((DaoFactory) getServletContext().getAttribute(CONF_DAO_FACTORY)).getVehiculeDao();
 	}
-	
-	
+
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

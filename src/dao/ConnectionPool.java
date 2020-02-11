@@ -5,21 +5,29 @@ import java.sql.SQLException;
 import com.jolbox.bonecp.BoneCP;
 import com.jolbox.bonecp.BoneCPConfig;
 
-import utils.FileProperties;
+import config.properties.DBConfigProperties;
 
 public class ConnectionPool {
-	private final static FileProperties fileProperties = new FileProperties();
-	private final static String DB_URL = fileProperties.getDBUrl();
-	private final static String DB_USERNAME = fileProperties.getDBUserName();
-	private final static String DB_PASSWORD = fileProperties.getDBPassword();
+	private final static DBConfigProperties DBProperties = new DBConfigProperties();
+	private final static String DB_URL = DBProperties.getDBUrl();
+	private final static String DB_USERNAME = DBProperties.getDBusername();
+	private final static String DB_PASSWORD = DBProperties.getDBpassword();
+	private final static String DB_DRIVER = DBProperties.getDBdriver();
 
 	
 	public static BoneCP createConnectionPool() {
-		// Khởi tạo config cho BoneCP
-		BoneCPConfig config = new BoneCPConfig();
+		try {
+			Class.forName(DB_DRIVER);
+		} catch (ClassNotFoundException e1) {
+			e1.printStackTrace();
+		}
+		
+		BoneCPConfig config = new BoneCPConfig();// Khởi tạo config cho BoneCP
 		config.setJdbcUrl(DB_URL);
 		config.setUsername(DB_USERNAME);
 		config.setPassword(DB_PASSWORD);
+//		config.setIdleConnectionTestPeriodInMinutes(1);
+//		config.setConnectionTestStatement("SELECT 1");
 
 		/* Paramétrage de la taille du pool */
 		config.setPartitionCount(2);// Số phần vùng kết nối
@@ -28,6 +36,7 @@ public class ConnectionPool {
 
 		BoneCP DBConnexionPool=null;
 		try {
+		
 			DBConnexionPool = new BoneCP(config);
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -21,7 +21,7 @@
 		</c:when>
 	</c:choose>
 
-	<form action="/NomProjet/login" method="post">
+	<form action="/mvc.web/login" method="post">
 		<table>
 			<tr>
 				<td>Username</td>

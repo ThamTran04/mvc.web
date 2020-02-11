@@ -34,7 +34,7 @@
 
 	<servlet>
 		<servlet-name>logoutServlet</servlet-name>
-		<servlet-class>controller.servlet.ServletLogout</servlet-class>
+		<servlet-class>servlet.ServletLogout</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>logoutServlet</servlet-name>
@@ -43,7 +43,7 @@
 
 	<servlet>
 		<servlet-name>newAccountServlet</servlet-name>
-		<servlet-class>controller.servlet.ServletCreateAccount</servlet-class>
+		<servlet-class>servlet.ServletCreateAccount</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>newAccountServlet</servlet-name>
@@ -61,8 +61,34 @@
 
 	<listener>
 		<description>RequestListenr</description>
-		<listener-class>listener.DBConnectionListener</listener-class>
+		<listener-class>dao.InitialisationDaoFactory</listener-class>
 	</listener>
+
+	<servlet>
+		<servlet-name>download</servlet-name>
+		<servlet-class>servlet.DownloadServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>download</servlet-name>
+		<url-pattern>/download</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>upload</servlet-name>
+		<servlet-class>servlet.UploadServlet</servlet-class>
+		<!--  
+		<multipart-config>
+			<location>C://uploadfiles/</location>
+			<max-file-size>52428800</max-file-size> 1024 * 1024 * 50 = 50MB
+			<max-request-size>52428800</max-request-size>
+			<file-size-threshold>3145728</file-size-threshold> 1024 * 1024 * 3 = 3MB 
+		</multipart-config>
+		--> 
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>upload</servlet-name>
+		<url-pattern>/upload</url-pattern>
+	</servlet-mapping>
 
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>

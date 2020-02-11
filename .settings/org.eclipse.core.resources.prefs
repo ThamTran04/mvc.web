@@ -1,3 +1,5 @@
 eclipse.preferences.version=1
+encoding//WebContent/view\ JSP/upload.jsp=UTF-8
 encoding//src/dao/ConnectionPool.java=UTF-8
+encoding//src/servlet/UploadServlet.java=UTF-8
 encoding//src/utils/AccountVerification.java=UTF-8

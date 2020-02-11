@@ -2,7 +2,6 @@ package servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -23,13 +22,13 @@ public class UserServlet extends HttpServlet {
 	
 	@Override
 	public void init() throws ServletException {
-		this.userDao = ((DaoFactory)getServletContext().getAttribute(CONF_DAO_FACTORY)).getUserDao();
+		this.userDao = ((DaoFactory) getServletContext().getAttribute(CONF_DAO_FACTORY)).getUserDao();
 	}
 	
 		@Override
 		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-			List<User> users = new ArrayList<User>();
+			List<User> users = null;
 			try {
 				users = userDao.showAll();
 			} catch (SQLException e) {		

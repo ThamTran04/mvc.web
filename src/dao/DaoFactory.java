@@ -15,7 +15,7 @@ public class DaoFactory {
 	static DaoFactory instance;
 
 	DaoFactory(BoneCP connectionPool) {
-		this.connexionPool = connectionPool;
+		DaoFactory.connexionPool = connectionPool;
 	}
 
 	public static DaoFactory getInstance() {
