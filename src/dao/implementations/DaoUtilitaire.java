@@ -1,6 +1,7 @@
 package dao.implementations;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -18,11 +19,22 @@ public class DaoUtilitaire {
 	    }
 	}
 	
-	/* Fermeture silencieuse du statement */
-	public static void fermetureSilencieuse( Statement statement ) {
+	/* Fermeture silencieuse du Statement */
+	public static void fermetureSilencieuse(Statement statement ) {
 	    if ( statement != null ) {
 	        try {
 	            statement.close();
+	        } catch ( SQLException e ) {
+	            System.out.println( "Échec de la fermeture du Statement : " + e.getMessage() );
+	        }
+	    }
+	}
+	
+	/* Fermeture silencieuse du PreparedStatement */
+	public static void fermetureSilencieuse(PreparedStatement preStatement ) {
+	    if ( preStatement != null ) {
+	        try {
+	            preStatement.close();
 	        } catch ( SQLException e ) {
 	            System.out.println( "Échec de la fermeture du Statement : " + e.getMessage() );
 	        }
@@ -41,9 +53,15 @@ public class DaoUtilitaire {
 	}
 	
 	/* Fermetures silencieuses du resultset, du statement et de la connexion */
-	public static void fermeturesSilencieuses( ResultSet resultSet, Statement statement, Connection connexion ) {
+	public static void fermeturesSilencieuses( ResultSet resultSet, PreparedStatement preStatement, Connection connexion ) {
 	    fermetureSilencieuse( resultSet );
-	    fermetureSilencieuse( statement );
+	    fermetureSilencieuse( preStatement );
+	    fermetureSilencieuse( connexion );
+	}
+	
+	public static void fermeturesSilencieuses(ResultSet resultSet, Statement Statement, Connection connexion ) {
+	    fermetureSilencieuse( resultSet );
+	    fermetureSilencieuse( Statement );
 	    fermetureSilencieuse( connexion );
 	}
 

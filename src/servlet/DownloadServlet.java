@@ -21,11 +21,13 @@ public class DownloadServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		 /***** Get The Absolute Path Of The Web Application *****/
-        String applicationPath = this.getServletContext().getRealPath("");
+		 /***** Get The Absolute Path Of The Web Application 
+    String applicationPath = this.getServletContext().getRealPath("");*****/
         
-		String filename =  request.getParameter("fileName");
-		String filePath = "/image/" + filename;
+//		String filename =  request.getParameter("fileName");
+//		String filePath = "/image/" + filename;
+		
+		String filePath = "/styles/login.css";
 		ServletContext context = getServletContext();
 		String fullPath = context.getRealPath(filePath);
 
@@ -34,7 +36,7 @@ public class DownloadServlet extends HttpServlet {
 
 		// thiet lap thong tin tra ve // définir les paramètres de la response
 		response.setContentType("application/octet-stream");
-		response.setHeader("Content-disposition", "attachment; filename=" + filename);
+		response.setHeader("Content-disposition", "attachment; filename=login.css");
 		response.setContentLength(data.length);
 		InputStream inputSream = new BufferedInputStream(new ByteArrayInputStream(data));
 

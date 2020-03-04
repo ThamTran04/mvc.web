@@ -9,15 +9,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import bean.User;
+import bean.room.gestion.RoomManagement;
 import dao.DaoFactory;
 import dao.interfaces.IUserDao;
 
 public class UserDaoImpl implements IUserDao {
 	private static final String SQL_SELECT_ALL = "select * from user";
 	private static final String SQL_SELECT_BY_USERNAME = "select * from user where userNamse=?";
-//	private static final String SQL_INSERT = "insert into user(nom, userNamse, email, pwd) value(?, ?, ?, ?)";
-//	private static final String UPDATE = "update user set pwd=? WHERE email=?";
-//	private static final String DELETE = "delete from user where email=? and pwd=?";
+	private static final String SQL_INSERT = "insert into user(nom, prenom, email, userNamse, pwd) value(?, ?, ?, ?, ?)";
 
 	private DaoFactory daoFactory;
 
@@ -32,8 +31,8 @@ public class UserDaoImpl implements IUserDao {
 		ResultSet resultSet = statement.executeQuery(SQL_SELECT_ALL);
 		List<User> users = new ArrayList<User>();
 		while (resultSet.next()) {
-			User user = new User(resultSet.getString("userNamse"), resultSet.getString("pwd"),
-					resultSet.getString("email"));
+			User user = new User(resultSet.getString("nom"), resultSet.getString("prenom"),
+					resultSet.getString("email"), resultSet.getString("email"), resultSet.getString("pwd"));
 			// ces mots "(userNamse, email, pwd)" sont obligatoires identiques a ceux qui
 			// sont nommes dans la database;
 			users.add(user);
@@ -58,16 +57,36 @@ public class UserDaoImpl implements IUserDao {
 			user = new User(resultSet.getString("userNamse"), resultSet.getString("pwd"));
 		}
 
-		resultSet.close();
-		preStatement.close();
-		connexion.close();
+//		resultSet.close();
+//		preStatement.close();
+//		connexion.close();
+
+		DaoUtilitaire.fermeturesSilencieuses(resultSet, preStatement, connexion);
 
 		return user;
 	}
 
 	@Override
-	public void insertUser(User u) throws SQLException {
+	public void prepareStatementForInsert(String nom, String prenom, String email, String username, String mdp)
+			throws SQLException {
+		Connection connexion = daoFactory.getConnection();
+		PreparedStatement preStatement = connexion.prepareStatement(SQL_INSERT);
+		preStatement.setString(1, nom);
+		preStatement.setString(2, prenom);
+		preStatement.setString(3, email);
+		preStatement.setString(4, username);
+		preStatement.setString(5, mdp);
+		preStatement.executeUpdate(); // execute Query
+		preStatement.close();
+	}
 
+	@Override
+	public void insertUser(User u) throws SQLException {
+		try {
+			prepareStatementForInsert(u.getNom(), u.getPrenom(), u.getEmail(), u.getUsername(), u.getPassword());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

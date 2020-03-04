@@ -15,10 +15,20 @@ public class User {
 		this.password = password;
 	}
 
-	public User(String username, String password, String email) {
+	public User(String nom, String prenom, String username, String email, String password) {
+		this.nom = nom;
+		this.prenom = prenom;
 		this.username = username;
 		this.email = email;
 		this.password = password;
+	}
+	
+	public String getNom() {
+		return nom;
+	}
+	
+	public String getPrenom() {
+		return prenom;
 	}
  
 	public String getUsername() {

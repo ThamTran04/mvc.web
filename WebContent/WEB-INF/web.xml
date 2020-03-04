@@ -13,6 +13,33 @@
 		<servlet-name>loginServlet</servlet-name>
 		<url-pattern>/login</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>inscriptionB</servlet-name>
+		<servlet-class>servlet.InscriptionButton</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>inscriptionB</servlet-name>
+		<url-pattern>/inscriptionB</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>inscriptionServlet</servlet-name>
+		<servlet-class>servlet.InscriptionServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>inscriptionServlet</servlet-name>
+		<url-pattern>/inscription</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>wellcome</servlet-name>
+		<servlet-class>servlet.WellcomeServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>wellcome</servlet-name>
+		<url-pattern>/wellcome</url-pattern>
+	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>adminServlet</servlet-name>
@@ -20,7 +47,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>adminServlet</servlet-name>
-		<url-pattern>/admin</url-pattern>
+		<url-pattern>/reservation</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
@@ -34,20 +61,11 @@
 
 	<servlet>
 		<servlet-name>logoutServlet</servlet-name>
-		<servlet-class>servlet.ServletLogout</servlet-class>
+		<servlet-class>servlet.LogoutServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>logoutServlet</servlet-name>
 		<url-pattern>/logout</url-pattern>
-	</servlet-mapping>
-
-	<servlet>
-		<servlet-name>newAccountServlet</servlet-name>
-		<servlet-class>servlet.ServletCreateAccount</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>newAccountServlet</servlet-name>
-		<url-pattern>/accountCreate</url-pattern>
 	</servlet-mapping>
 
 	<filter>

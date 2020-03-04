@@ -6,7 +6,7 @@ import bean.User;
 import dao.DaoFactory;
 
 /*
- * tiep nhan thong tin usernamme va mdp tu controller. co tuong tac voi DB và xu li logic truoc khi gui tra lai phan hoi cho controller
+ * tiep nhan thong tin usernamme va mdp tu servlet. co tuong tac voi DB và xu li logic truoc khi gui tra lai phan hoi cho controller
  */
 
 public class LoginVerification {

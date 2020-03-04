@@ -27,16 +27,15 @@ public class LoginFilter implements Filter {
 
 		User user = AppSession.getLoginedUser(req.getSession());
 		try {
-			if (!LoginVerification.checkAdminUser(user) && req.getRequestURI().endsWith("admin")
+			if (!LoginVerification.checkAdminUser(user) && req.getRequestURI().endsWith("reservation")
 					&& !req.getRequestURI().endsWith("login")) {
 				resp.sendRedirect("login?adminerror=1");
 				return;
 			} else if (!LoginVerification.checkUser(user) && req.getRequestURI().endsWith("vehicule")
 					&& !req.getRequestURI().endsWith("login")) {
-				resp.sendRedirect("login");
+				resp.sendRedirect("login?usererror=1");
 				return;
-			}
-			else {
+			} else {
 				chain.doFilter(request, response);
 			}
 
@@ -47,12 +46,12 @@ public class LoginFilter implements Filter {
 
 	@Override
 	public void init(FilterConfig arg0) throws ServletException {
-		
+
 	}
-	
+
 	@Override
 	public void destroy() {
-		
+
 	}
 
 }

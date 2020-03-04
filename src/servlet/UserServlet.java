@@ -35,7 +35,7 @@ public class UserServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 			req.setAttribute("users", users);
-			this.getServletContext().getRequestDispatcher("/view JSP/admin.jsp").forward(req, resp);
+			this.getServletContext().getRequestDispatcher("/view JSP/reservation.jsp").forward(req, resp);
 
 		}
 	}

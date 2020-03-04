@@ -20,7 +20,7 @@ public class LoginServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest requete, HttpServletResponse response)
 			throws ServletException, IOException {
-		this.getServletContext().getRequestDispatcher("/view JSP/login.jsp").forward(requete, response);
+		this.getServletContext().getRequestDispatcher("/view JSP/login2.jsp").forward(requete, response);
 	}
 
 	@Override
@@ -29,6 +29,7 @@ public class LoginServlet extends HttpServlet {
 		String username = requete.getParameter("username"); // ce mot "username" se trouve dans le fichier login.jsp
 		String pwd = requete.getParameter("password");
 		User user = new User(username, pwd);
+		
 		boolean checkUser = false;
 		boolean checkAd = false;
 
@@ -44,7 +45,7 @@ public class LoginServlet extends HttpServlet {
 			AppSession.storeLoginedUser(session, user);
 			AppSession.setCookieUser(response, username, pwd);
 			if (checkAd) {
-				response.sendRedirect("admin");
+				response.sendRedirect("reservation");
 			} else {
 				response.sendRedirect("vehicule");
 			}

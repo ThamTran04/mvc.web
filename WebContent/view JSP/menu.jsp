@@ -1,7 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
+<%@page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
-<a href="${pageContext.request.contextPath}/logout">
-  Logout
-</a>
+<nav class="navbar navbar-dark bg-primary">
+		<img src="image/logo.png"> <a id="lien" href="${pageContext.request.contextPath}/logout">Déconnexion</a>
+</nav>
