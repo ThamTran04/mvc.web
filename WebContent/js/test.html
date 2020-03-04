@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+	function xo_so_kien_thiet() {
+		var luckyNumber = Math.floor(Math.random() * 10);
+		return function bang_phong_thien_dia() {
+			return luckyNumber;
+		}
+	}
+
+	var soi_ket_qua = xo_so_kien_thiet();
+	console.log(soi_ket_qua());
+	console.log(soi_ket_qua());
+		console.log(soi_ket_qua());
+	</script>
+
+</body>
+</html>

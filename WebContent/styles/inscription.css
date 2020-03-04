@@ -1,0 +1,91 @@
+body {
+    width:100%;
+    margin: 0;
+    padding: 0;
+}
+.contact{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.left{
+width:40%;
+margin-top: 10%;
+position :relative;
+background-color: white;
+overflow: hidden;
+}
+.left:before {
+  background-color:#c6b7e1;
+  position: absolute;
+  content: "";
+  top: -10px;
+  right: -100px;
+  height: 270px;
+  width: 325px;
+  transform: rotate(25deg);
+} 
+.left:after {
+  background: #7a57bb;
+  position: absolute;
+  content: "";
+  bottom: -20px;
+  right: -100px;
+  height: 270px;
+  width: 300px;
+  transform: rotate(-25deg);
+}  
+#logo{
+  margin-left: 77%;
+  margin-top: 4%;
+  position: absolute;
+  z-index: 2;
+}
+.input_block{
+  border-radius: 5px;
+  width:100%;
+  height:20px;
+  margin:10px;
+  padding:30px; 
+  border: 1px solid #ccc;
+  font-family:'Lato';
+  font-weight: 300;
+  font-size: 20px;
+}
+h1{
+  font-family:'Lato';
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  color : white;
+  position: absolute;
+  transform: rotate(-90deg);
+  top: 120px;
+  left: -40px;
+  margin-top: 40%;
+  margin-left: 85%;
+  z-index: 2;
+}
+.right{
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  margin-top: 10%;
+  padding-left: 10%;
+}
+#envoi{
+  background-color :#99b3ff;
+  margin-bottom: 10px;
+  display: block;
+  height: 40px;
+  width: 250px;
+  left: 95px;
+  border: 0;
+  border-radius: 30px;
+  bottom: -20px;
+  color: white;
+  font-size: 1.1rem;
+  text-align: center;
+  font-weight: 400;
+  outline: none;
+}

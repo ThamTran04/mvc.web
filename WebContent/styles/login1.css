@@ -1,0 +1,95 @@
+
+body {
+  min-height: 100vh;
+  width: 90%;
+  background-image: url("/mvc.web/image/logo.png");
+  background-position-x: center;
+  background-repeat: no-repeat;
+ 
+  opacity: 0,65;
+  transition-delay: 0,2s;
+}
+
+.block {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.block:hover .top:before, .block:hover .top:after,
+.block:hover 
+
+.block:active 
+ {
+  margin-left: 200px;
+  transform-origin: -200px 50%;
+  transition-delay: 0s;
+}
+.block:hover .center, .block:active .center {
+  opacity: 5;
+  transition-delay: 0.1s;
+}
+
+.top:before, .top:after
+ {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 200vmax;
+  height: 200vmax;
+  top: 50%;
+  left: 50%;
+  margin-top: -100vmax;
+  transform-origin: 0 50%;
+  
+  opacity: 0.65;
+  transition-duration: 1s;
+ 
+}
+
+
+.top:before {
+  transform: rotate(45deg);
+  background: #8b16b9;
+}
+.top:after {
+  transform: rotate(135deg);
+  background: #7a57bb;
+}
+
+
+
+.center {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  top: 50%;
+  left: 50%;
+  margin-left: -229px;
+  margin-top: -250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  opacity: 0;
+}
+.center input {
+  width: 100%;
+  padding: 15px;
+  margin: 5px;
+  border-radius: 1px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+ 
+}
+#seconnecter{
+  font-size: 25px;
+}
+
+
+
+
+
+

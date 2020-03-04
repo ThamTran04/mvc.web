@@ -1,0 +1,30 @@
+/*body {
+	background-image: url("/mvc.web/image/Ciel.jpg");
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	height: 100vh;
+	width: 100vw;
+}*/
+
+#conteneur {
+	margin-left: 50px;
+}
+
+.vide {
+	height: 1px;
+}
+
+#lien {
+	color: black;
+	margin-right: 20px;
+	font-size: 18px;
+}
+
+#conteneur {
+	margin-bottom: 30px;
+	margin-right: 50px;
+}
+
+.espace {
+	height: 10px;
+}
